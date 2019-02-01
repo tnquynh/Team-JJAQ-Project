@@ -5,8 +5,8 @@
 		<item value="https://github.com/jmeolmsted/Team-JJAQ-Project"/>
 	</list>
 	<list key="EGit.KnownHosts">
-		<item value="bitbucket.org"/>
 		<item value="git.eclipse.org"/>
+		<item value="bitbucket.org"/>
 		<item value="github.com"/>
 	</list>
 	<list key="CommitDialog.authorValues">
