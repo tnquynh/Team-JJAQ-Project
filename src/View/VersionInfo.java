@@ -1,7 +1,9 @@
 package View;
 
 public class VersionInfo {
-public VersionInfo() {
-	
-}
+	private double myVersion;
+
+	public VersionInfo() {
+		myVersion = 0;
+	}
 }
