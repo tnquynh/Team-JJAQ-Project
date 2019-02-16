@@ -22,7 +22,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @version Winter 2019
  */
 public class MainGUI {
-
+	private VersionInfo myVersion;
 	private static final Dimension SIZE = new Dimension(450, 450);
 	private JFrame myFrame;
 
@@ -30,7 +30,7 @@ public class MainGUI {
 	 * Is the main constructor for the GUI.
 	 */
 	public MainGUI() {
-
+		myVersion = new VersionInfo();
 		myFrame = new JFrame("JJAQ Program");
 
 	}
@@ -73,7 +73,7 @@ public class MainGUI {
 				JOptionPane.showMessageDialog(null,
 						"Team JJAQ\n" + "Team members: Anthony Trang, Jacob Dickson, "
 								+ "James Olmsted, Quynh Trinh\n"
-								+ "Version number: \n",
+								+ "Version number: " + myVersion.getVersion() + "\n",
 						"About", JOptionPane.PLAIN_MESSAGE);
 			}
 		});
