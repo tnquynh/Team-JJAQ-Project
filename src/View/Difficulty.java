@@ -1,5 +1,12 @@
 package View;
 
+/**
+ * This class creates the Difficulty object for use by the Project and Comparison class.
+ * 
+ * @author James Olmsted
+ * @version Winter 2019
+ */
+
 public class Difficulty {
 	private String displayValue;
 	private Double sortValue;
