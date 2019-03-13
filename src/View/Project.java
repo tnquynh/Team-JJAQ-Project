@@ -37,6 +37,7 @@ public class Project {
 		 feet used for length and width*/
 		cost = 10*space; //High end cost of wood flooring per square foot
 		difficulty = new Difficulty(space,time);
+		sizeOfProject = new SizeOfProject(space,time,cost);
 	}
 	
 	//If the user knows/set the cost of the project
@@ -49,6 +50,8 @@ public class Project {
 		time = space/750;
 		cost = c;
 		setCost = true;
+		difficulty = new Difficulty(space,time);
+		sizeOfProject = new SizeOfProject(space,time,cost);
 	}
 	
 	public void setProjectName(String pn) {
