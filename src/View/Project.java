@@ -4,6 +4,13 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * This class creates the Project and holds the necessary data for the program.
+ * 
+ * @author James Olmsted
+ * @version Winter 2019
+ */
+
 public class Project {
 	private String projectName; 
 	private String projectType;
@@ -41,6 +48,7 @@ public class Project {
 		space = length*width;
 		time = space/750;
 		cost = c;
+		setCost = true;
 	}
 	
 	public void setProjectName(String pn) {
@@ -52,7 +60,7 @@ public class Project {
 	}
 
 	public void setProjectType(String pt) {
-		projectName = pt;
+		projectType = pt;
 	}
 	
 	public String getProjectType() {
@@ -103,8 +111,17 @@ public class Project {
 		return difficulty.getDisplay();
 	}
 	
+	public Double getDifficultySort() {
+		return difficulty.getSort();
+	}
+	
+	
 	public String getSizeOfProject() {
 		return sizeOfProject.getDisplay();
+	}
+	
+	public Double getSizeOfProjectSort() {
+		return sizeOfProject.getSort();
 	}
 	
 	public void writeProjectFile() throws IOException {
