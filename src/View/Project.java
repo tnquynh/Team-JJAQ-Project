@@ -8,6 +8,15 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.IOException;
+
+/**
+ * This class creates the Project and holds the necessary data for the program.
+ * 
+ * @author James Olmsted
+ * @version Winter 2019
+ */
 
 public class Project {
 	private String projectName; 
@@ -32,6 +41,7 @@ public class Project {
 		cost = 10*space; 
 		difficulty = new Difficulty();
 		sizeOfProject = new SizeOfProject();
+
 		
 	}
 	
@@ -78,6 +88,9 @@ public class Project {
 		sizeOfProject = new SizeOfProject(space, time, cost);
 		}
 	
+		sizeOfProject = new SizeOfProject(space,time,cost);
+	}
+	
 	//If the user knows/set the cost of the project
 	public Project(String pn ,String pt, Double l, Double w, Double c) {
 		projectName = pn;
@@ -87,6 +100,9 @@ public class Project {
 		space = length*width;
 		time = space/750;
 		cost = c;
+		setCost = true;
+		difficulty = new Difficulty(space,time);
+		sizeOfProject = new SizeOfProject(space,time,cost);
 	}
 	
 	public void setProjectName(String pn) {
@@ -143,6 +159,9 @@ public class Project {
 		
 	}
 	
+		return time;
+	}
+	
 	public void setCost(Double c) {
 		cost = c;
 		sizeOfProject.update(space, time, cost);
@@ -157,6 +176,12 @@ public class Project {
 		return difficulty.getDisplay();
 	}
 	
+
+	public Double getDifficultySort() {
+		return difficulty.getSort();
+	}
+	
+	
 	public String getSizeOfProject() {
 		return sizeOfProject.getDisplay();
 	}
@@ -165,6 +190,13 @@ public class Project {
 		File directory = new File(".");
 		String fileName =	directory.getCanonicalPath() + File.separator + projectName +".txt";
 		System.out.println(fileName);
+	public Double getSizeOfProjectSort() {
+		return sizeOfProject.getSort();
+	}
+	
+	public void writeProjectFile() throws IOException {
+		File directory = new File(".");
+		String fileName =	directory.getCanonicalPath() + File.separator + projectName +".txt";
 		File file = new File(fileName);
 		FileWriter fw = new FileWriter(file );
 		fw.write(projectName);
@@ -181,4 +213,5 @@ public class Project {
 		}
 		fw.close();
 	}
+
 }

@@ -1,4 +1,12 @@
-/*package View;
+
+package View;
+
+/**
+ * This class creates the holds and organize an array list of Project objects for us in the program.
+ * 
+ * @author James Olmsted
+ * @version Winter 2019
+ */
 
 import java.util.ArrayList;
 
@@ -132,4 +140,4 @@ public class Comparison {
 		return projects;
 	}
 }
-	*/
+

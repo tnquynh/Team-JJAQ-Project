@@ -1,7 +1,7 @@
 package View;
 
 /*
- * TCSS 360 – Winter 2019
+ * TCSS 360 ï¿½ Winter 2019
  * 
  * 
  * WANT TO ADD A "ARE YOU SURE" WHEN YOU CLICK CANCEL FOR THE CREATING NEW PROJECT PAGE
@@ -17,6 +17,9 @@ package View;
  * 
  * ** For SizeOfProject/Difficulty call update and then use getDisplay to return the value you want to display
  * 
+=======
+ * TCSS 360 â€“ Winter 2019
+ * Test
  */
 
 import java.awt.Dimension;
