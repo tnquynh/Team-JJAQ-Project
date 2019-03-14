@@ -11,6 +11,11 @@ public class SizeOfProject {
 	private String displayValue;
 	private Double sortValue;
 	
+	public SizeOfProject() {
+		
+	}
+	
+
 	public SizeOfProject(Double s, Double c, Double t) {
 		sortValue = (s*t+c)/100;
 		
@@ -27,6 +32,8 @@ public class SizeOfProject {
 		return displayValue;
 	}
 	
+	//space, time, cost
+
 	public void update(Double s, Double t, Double c) {
 		sortValue = (s*t+c)/100;
 		

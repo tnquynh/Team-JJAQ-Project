@@ -1,6 +1,13 @@
 package View;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.ArrayList;
+import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -24,6 +31,17 @@ public class Project {
 	private SizeOfProject sizeOfProject;
 	
 	public Project() {
+		projectName = null;
+		projectType = null;
+		length = (double) 0;
+		width = (double) 0;
+		space = length*width;
+		time = space/750;  /*Time calculated using average and in number of days assuming
+		 feet used for length and width*/
+		cost = 10*space; 
+		difficulty = new Difficulty();
+		sizeOfProject = new SizeOfProject();
+
 		
 	}
 	
@@ -37,6 +55,39 @@ public class Project {
 		 feet used for length and width*/
 		cost = 10*space; //High end cost of wood flooring per square foot
 		difficulty = new Difficulty(space,time);
+		sizeOfProject = new SizeOfProject(space, time, cost);
+
+	}
+	
+	public Project(String path) {
+		File file = new File(path);
+		Scanner input = null;
+		try {
+			input = new Scanner(file);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ArrayList<String> data = new ArrayList();
+
+		while(input.hasNext()) {
+		    data.add(input.nextLine());
+		    //or to process line by line
+		}
+
+		input.close();
+		projectName = data.get(0);
+		projectType = data.get(1);
+		length = Double.valueOf(data.get(2));
+		width = Double.valueOf(data.get(3));
+		space = length*width;
+		time = space/750;  /*Time calculated using average and in number of days assuming
+		 feet used for length and width*/
+		cost = 10*space; //High end cost of wood flooring per square foot
+		difficulty = new Difficulty(space,time);
+		sizeOfProject = new SizeOfProject(space, time, cost);
+		}
+	
 		sizeOfProject = new SizeOfProject(space,time,cost);
 	}
 	
@@ -97,6 +148,17 @@ public class Project {
 	}
 	
 	public Double getTime() {
+		BigDecimal bd = new BigDecimal(time);
+		int newScale = 4-bd.precision()+bd.scale();
+		  bd = bd.setScale(newScale, RoundingMode.HALF_UP);
+		return time;
+	}
+	
+	public void setTime(Double thisSpace) {
+		time = thisSpace/750;
+		
+	}
+	
 		return time;
 	}
 	
@@ -114,6 +176,7 @@ public class Project {
 		return difficulty.getDisplay();
 	}
 	
+
 	public Double getDifficultySort() {
 		return difficulty.getSort();
 	}
@@ -123,6 +186,10 @@ public class Project {
 		return sizeOfProject.getDisplay();
 	}
 	
+	public void writeProjectFile() throws IOException {
+		File directory = new File(".");
+		String fileName =	directory.getCanonicalPath() + File.separator + projectName +".txt";
+		System.out.println(fileName);
 	public Double getSizeOfProjectSort() {
 		return sizeOfProject.getSort();
 	}
@@ -146,4 +213,5 @@ public class Project {
 		}
 		fw.close();
 	}
+
 }
